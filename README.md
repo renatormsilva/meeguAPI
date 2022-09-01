@@ -1,73 +1,98 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# NestJS api
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-  
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Um projeto desenvolvido utilizando NetsJs, typescript, docke, prismaIO, postgres
 
-## Description
+## 🚀 Começando
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-## Installation
+Consulte **[Implantação](#-implanta%C3%A7%C3%A3o)** para saber como implantar o projeto.
 
-```bash
-$ npm install
+### 📋 Pré-requisitos
+
+De que coisas você precisa para instalar o software e como instalá-lo?
+
+```
+Node - v16+
+docker 
+vscode
+yarn or npm
 ```
 
-## Running the app
+### 🔧 Instalação
 
-```bash
-# development
-$ npm run start
+ Guia de instalação 
 
-# watch mode
-$ npm run start:dev
+```
+git clone git@github.com:renatormsilva/meeguAPI.git
 
-# production mode
-$ npm run start:prod
 ```
 
-## Test
+```
+yarn -- para instalaar as dependências 
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
-## Support
+você pode escolher qual database usar, eu escolhi o postgres, se não souber como fazer basta criar um arquivo:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+docker-compose.yml
 
-## Stay in touch
+```
+version: "3.9"
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+services:
+  database:
+    image: postgres
+    container_name: project
+    restart: always
+    ports: 
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=yourpostgresuser
+      - POSTGRES_PASSWORD=yourpostgrespassword
+      - POSTGRES_DB=yourpostgresdatabasename
+    volumes:
+      - pgdata:/data/postgres
+volumes:
+  pgdata:
+    driver: local
 
-## License
+```
 
-  Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+depois disso: 
+
+```
+docker-compose up -d
+
+```
+e pronto seu banco de dados já está rodando 
+
+para rodas as migrations do prisma basta usar 
+
+```
+yarn prisma migrate dev
+
+```
+
+ou seguir esse exemplo:
+
+https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases/using-prisma-migrate-typescript-postgres
+
+para facilitar fiz deploy da aplicação no heroku
+
+https://meeguapi.herokuapp.com/user
+
+## 🛠️ Construído com
+
+
+* [NestJs](https://nestjs.com/) 
+* [typescript](https://www.typescriptlang.org/) - 
+* [docker](https://www.docker.com/) -
+* [prismaIO](hhttps://www.prisma.io/) -
+* [JEST](https://jestjs.io/pt-BR/) - 
+* [postgres](https://www.postgresql.org/) - 
+* [heroku](https://www.heroku.com/) - 
+
+
+⌨️ com ❤️ por [Renato Rodrigues](https://github.com/renatormsilva) 😊
