@@ -1,1 +1,1 @@
-file
+web: yarn start:prod
